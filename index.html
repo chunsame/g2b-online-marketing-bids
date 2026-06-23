@@ -124,7 +124,8 @@
 
     <p class="notice">
       ‘나라장터 조회’ 버튼을 누르면 공고번호가 자동 복사되고 나라장터가 열립니다.
-      나라장터 검색창에 붙여 넣으면 해당 결과를 바로 확인할 수 있습니다.
+      나라장터는 외부 검색값을 주소로 직접 받지 않아, 열린 화면에서 <strong>입찰 → 입찰공고 → 입찰공고목록</strong>으로 이동한 뒤
+      복사된 공고번호를 붙여 넣으면 해당 공고 결과가 바로 조회됩니다.
     </p>
 
     <section id="grid" class="grid" aria-live="polite"></section>
@@ -181,7 +182,7 @@
         area.value = no; document.body.append(area); area.select();
         document.execCommand("copy"); area.remove();
       }
-      showToast(`${no} 복사 완료 — 나라장터 검색창에 붙여 넣으세요.`);
+      showToast(`${no} 복사 완료 — 입찰공고목록의 ‘입찰공고번호’에 붙여 넣어 조회하세요.`);
       window.open("https://www.g2b.go.kr/", "_blank", "noopener");
     }
 
