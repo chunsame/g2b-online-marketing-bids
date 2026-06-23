@@ -3,232 +3,386 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="나라장터에서 투찰 가능한 국내 온라인·SNS·디지털 마케팅 입찰공고 목록">
-  <title>나라장터 온라인 마케팅 입찰공고</title>
+  <title>2026 마케팅 지원사업 목록</title>
   <style>
     :root {
-      --navy:#0c2847; --blue:#1769e0; --sky:#eaf3ff; --ink:#182230;
-      --muted:#667085; --line:#dce3ec; --surface:#fff; --bg:#f4f7fb;
-      --green:#087a55; --green-bg:#eaf8f2; --red:#bc312d; --red-bg:#fff0ef;
-      --shadow:0 12px 34px rgba(24,34,48,.08);
+      --navy: #132a46;
+      --blue: #1769e0;
+      --sky: #eaf3ff;
+      --ink: #182230;
+      --muted: #667085;
+      --line: #dce3ec;
+      --surface: #ffffff;
+      --background: #f4f7fb;
+      --urgent: #c83b37;
+      --urgent-bg: #fff0ef;
+      --green: #087a55;
+      --green-bg: #eaf8f2;
+      --shadow: 0 12px 34px rgba(24, 34, 48, .08);
     }
-    * { box-sizing:border-box; }
+
+    * { box-sizing: border-box; }
+
     body {
-      margin:0; color:var(--ink); background:var(--bg);
-      font-family:Pretendard,"Noto Sans KR","Apple SD Gothic Neo",Arial,sans-serif;
-      line-height:1.55;
+      margin: 0;
+      color: var(--ink);
+      background: var(--background);
+      font-family: Pretendard, "Noto Sans KR", "Apple SD Gothic Neo", Arial, sans-serif;
+      line-height: 1.55;
     }
-    button,input { font:inherit; }
+
+    a { color: inherit; }
+
     .hero {
-      padding:52px 22px 88px; color:#fff;
-      background:radial-gradient(circle at 82% 18%,rgba(80,174,255,.42),transparent 27%),
-        linear-gradient(135deg,#0c233d,#15599d);
+      padding: 54px 24px 86px;
+      color: white;
+      background:
+        radial-gradient(circle at 80% 20%, rgba(90, 176, 255, .38), transparent 28%),
+        linear-gradient(135deg, #10243e, #174e91);
     }
-    .hero-inner,main { width:min(1180px,100%); margin:auto; }
-    .eyebrow { margin:0 0 9px; color:#9fd0ff; font-size:13px; font-weight:800; letter-spacing:.1em; }
-    h1 { margin:0; font-size:clamp(30px,5vw,48px); line-height:1.18; letter-spacing:-.04em; }
-    .subtitle { max-width:760px; margin:15px 0 0; color:#dcecff; font-size:17px; }
-    main { position:relative; margin-top:-50px; padding:0 20px 56px; }
+
+    .hero-inner,
+    main {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: #9fd0ff;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .09em;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(30px, 5vw, 48px);
+      line-height: 1.2;
+      letter-spacing: -.04em;
+    }
+
+    .subtitle {
+      max-width: 700px;
+      margin: 16px 0 0;
+      color: #d9e9fa;
+      font-size: 17px;
+    }
+
+    main {
+      position: relative;
+      margin-top: -48px;
+      padding: 0 24px 60px;
+    }
+
     .summary {
-      display:grid; grid-template-columns:repeat(3,1fr); overflow:hidden;
-      border:1px solid rgba(255,255,255,.9); border-radius:18px;
-      background:var(--surface); box-shadow:var(--shadow);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      overflow: hidden;
+      margin-bottom: 24px;
+      border: 1px solid rgba(255, 255, 255, .8);
+      border-radius: 18px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
     }
-    .summary > div { padding:21px 25px; border-right:1px solid var(--line); }
-    .summary > div:last-child { border:0; }
-    .label { display:block; color:var(--muted); font-size:12px; font-weight:800; }
-    .value { display:block; margin-top:4px; color:var(--navy); font-size:23px; font-weight:850; }
-    .toolbar {
-      display:flex; gap:12px; align-items:center; margin:22px 0 15px;
-      padding:13px; border:1px solid var(--line); border-radius:14px; background:#fff;
+
+    .summary-item {
+      padding: 22px 26px;
+      border-right: 1px solid var(--line);
     }
-    .search {
-      flex:1; min-width:0; padding:11px 13px; border:1px solid #cbd5e1;
-      border-radius:9px; outline:none;
+
+    .summary-item:last-child { border-right: 0; }
+
+    .summary-label {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
     }
-    .search:focus { border-color:var(--blue); box-shadow:0 0 0 3px rgba(23,105,224,.12); }
-    .sort {
-      padding:11px 13px; border:1px solid #cbd5e1; border-radius:9px;
-      color:#344054; background:#fff; cursor:pointer;
+
+    .summary-value {
+      display: block;
+      margin-top: 4px;
+      color: var(--navy);
+      font-size: 24px;
+      font-weight: 800;
     }
+
     .notice {
-      margin:0 0 18px; padding:14px 17px; border:1px solid #cfe0f6;
-      border-radius:12px; color:#315172; background:var(--sky); font-size:13px;
+      margin: 0 0 20px;
+      padding: 15px 18px;
+      border: 1px solid #cfe0f6;
+      border-radius: 12px;
+      color: #315172;
+      background: var(--sky);
+      font-size: 14px;
     }
-    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
-    .card {
-      display:flex; flex-direction:column; min-height:285px; padding:21px;
-      border:1px solid var(--line); border-radius:17px; background:#fff; box-shadow:var(--shadow);
+
+    .table-wrap {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
     }
-    .top { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; }
-    .category {
-      display:inline-flex; padding:4px 9px; border-radius:999px;
-      color:var(--green); background:var(--green-bg); font-size:11px; font-weight:800;
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
     }
-    .status {
-      display:inline-flex; padding:4px 9px; border-radius:999px;
-      color:var(--blue); background:var(--sky); font-size:11px; font-weight:800;
+
+    th {
+      padding: 16px 18px;
+      color: #475467;
+      background: #f8fafc;
+      font-size: 13px;
+      text-align: left;
+      letter-spacing: .02em;
     }
-    .status.urgent { color:var(--red); background:var(--red-bg); }
-    h2 { margin:14px 0 9px; color:var(--navy); font-size:19px; line-height:1.4; letter-spacing:-.02em; }
-    .agency { margin:0 0 17px; color:var(--muted); font-size:13px; }
-    dl { display:grid; grid-template-columns:78px 1fr; gap:8px 10px; margin:0; font-size:14px; }
-    dt { color:var(--muted); font-weight:700; }
-    dd { margin:0; font-weight:650; }
-    .budget { color:var(--blue); font-size:17px; font-weight:850; }
-    .actions { display:flex; gap:9px; margin-top:auto; padding-top:19px; }
-    .btn {
-      flex:1; padding:10px 12px; border:1px solid #b7cdf0; border-radius:9px;
-      color:var(--blue); background:#fff; font-weight:800; cursor:pointer;
+
+    td {
+      padding: 19px 18px;
+      border-top: 1px solid var(--line);
+      vertical-align: top;
+      font-size: 14px;
     }
-    .btn.primary { color:#fff; border-color:var(--blue); background:var(--blue); }
-    .btn:hover { filter:brightness(.96); }
-    .empty { display:none; grid-column:1/-1; padding:45px; color:var(--muted); text-align:center; }
-    footer { padding:27px 0 0; color:var(--muted); font-size:12px; text-align:center; }
-    .toast {
-      position:fixed; left:50%; bottom:28px; z-index:10; transform:translate(-50%,20px);
-      padding:11px 17px; border-radius:9px; color:#fff; background:#172b4d;
-      opacity:0; pointer-events:none; transition:.2s;
+
+    th:nth-child(1) { width: 40%; }
+    th:nth-child(2) { width: 19%; }
+    th:nth-child(3) { width: 31%; }
+    th:nth-child(4) { width: 10%; text-align: center; }
+
+    td:last-child { text-align: center; }
+
+    .title {
+      display: block;
+      color: var(--navy);
+      font-size: 15px;
+      font-weight: 750;
+      text-decoration: none;
     }
-    .toast.show { opacity:1; transform:translate(-50%,0); }
-    @media(max-width:760px) {
-      .hero { padding:40px 18px 78px; }
-      main { padding:0 13px 40px; }
-      .summary { grid-template-columns:1fr; }
-      .summary > div { border-right:0; border-bottom:1px solid var(--line); }
-      .toolbar { align-items:stretch; flex-direction:column; }
-      .grid { grid-template-columns:1fr; }
+
+    .title:hover { color: var(--blue); text-decoration: underline; }
+
+    .tag {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      color: var(--green);
+      background: var(--green-bg);
+      font-size: 11px;
+      font-weight: 750;
+    }
+
+    .period {
+      white-space: nowrap;
+      font-weight: 650;
+    }
+
+    .deadline {
+      display: inline-block;
+      margin-top: 6px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      color: var(--urgent);
+      background: var(--urgent-bg);
+      font-size: 11px;
+      font-weight: 750;
+    }
+
+    .budget strong { color: var(--blue); }
+
+    .link-button {
+      display: inline-block;
+      min-width: 58px;
+      padding: 8px 10px;
+      border: 1px solid #b7cdf0;
+      border-radius: 9px;
+      color: var(--blue);
+      background: white;
+      font-size: 12px;
+      font-weight: 750;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .link-button:hover {
+      color: white;
+      border-color: var(--blue);
+      background: var(--blue);
+    }
+
+    footer {
+      padding: 26px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      text-align: center;
+    }
+
+    @media (max-width: 760px) {
+      .hero { padding: 40px 20px 76px; }
+      main { padding: 0 14px 40px; }
+      .summary { grid-template-columns: 1fr; }
+      .summary-item { border-right: 0; border-bottom: 1px solid var(--line); }
+      .summary-item:last-child { border-bottom: 0; }
+      .table-wrap { overflow: visible; border: 0; background: transparent; box-shadow: none; }
+      table, tbody, tr, td { display: block; width: 100%; }
+      thead { display: none; }
+      tr {
+        margin-bottom: 13px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: white;
+        box-shadow: 0 6px 20px rgba(24, 34, 48, .06);
+      }
+      td {
+        position: relative;
+        padding: 13px 16px 13px 112px;
+        border-top: 1px solid #edf0f4;
+        min-height: 50px;
+      }
+      td:first-child { padding: 18px 16px; border-top: 0; }
+      td::before {
+        position: absolute;
+        left: 16px;
+        width: 84px;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 700;
+      }
+      td:nth-child(2)::before { content: "신청기간"; }
+      td:nth-child(3)::before { content: "지원 내용"; }
+      td:nth-child(4)::before { content: "공고"; }
+      td:last-child { text-align: left; }
     }
   </style>
 </head>
 <body>
   <header class="hero">
     <div class="hero-inner">
-      <p class="eyebrow">KONEPS MARKETING BIDS</p>
-      <h1>나라장터 온라인 마케팅 입찰공고</h1>
-      <p class="subtitle">온라인 마케팅·SNS 운영·디지털 홍보 관련 공고 중 2026년 6월 23일 기준 투찰 기간이 남아 있는 항목만 정리했습니다.</p>
+      <p class="eyebrow">BIZINFO MARKETING SUPPORT</p>
+      <h1>2026 마케팅 지원사업</h1>
+      <p class="subtitle">기업마당 지원사업 공고 1~10페이지에서 마케팅 실행, 홍보 콘텐츠 제작, 온라인 판매 및 국내·해외 판로 확대와 직접 관련된 사업만 정리했습니다.</p>
     </div>
   </header>
 
   <main>
-    <section class="summary" aria-label="공고 요약">
-      <div><span class="label">진행 중 공고</span><span class="value">9건</span></div>
-      <div><span class="label">총 배정예산</span><span class="value">약 11.45억원</span></div>
-      <div><span class="label">조사 기준일</span><span class="value">2026.06.23</span></div>
+    <section class="summary" aria-label="목록 요약">
+      <div class="summary-item">
+        <span class="summary-label">선별 사업</span>
+        <span class="summary-value">13개</span>
+      </div>
+      <div class="summary-item">
+        <span class="summary-label">금액 명시 사업</span>
+        <span class="summary-value">4개</span>
+      </div>
+      <div class="summary-item">
+        <span class="summary-label">조사 기준일</span>
+        <span class="summary-value">2026.06.23</span>
+      </div>
     </section>
 
-    <div class="toolbar">
-      <input id="search" class="search" type="search" placeholder="공고명, 기관, 공고번호 검색" aria-label="공고 검색">
-      <button id="sort" class="sort" type="button">마감일 빠른 순</button>
-    </div>
+    <p class="notice">지원 금액이 공개되지 않은 사업은 기업마당 상세 페이지에 안내된 현물·서비스 지원 내용을 표시했습니다. 신청 전 원문과 첨부 공고문을 반드시 확인하세요.</p>
 
-    <p class="notice">
-      ‘나라장터 조회’ 버튼을 누르면 공고번호가 자동 복사되고 나라장터가 열립니다.
-      나라장터 검색창에 붙여 넣으면 해당 결과를 바로 확인할 수 있습니다.
-    </p>
-
-    <section id="grid" class="grid" aria-live="polite"></section>
-    <div id="empty" class="empty">검색 조건에 맞는 공고가 없습니다.</div>
+    <section class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>사업명</th>
+            <th>신청기간</th>
+            <th>예산·지원 내용</th>
+            <th>원문</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a class="title" href="https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000123503" target="_blank" rel="noopener">경남 창업기업 홍보 콘텐츠 제작</a><span class="tag">콘텐츠 제작</span></td>
+            <td><span class="period">2026.06.23~07.21</span></td>
+            <td class="budget">홍보영상·숏폼 또는 제품사진 최대 30컷 제작</td>
+            <td><a class="link-button" href="https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000123503" target="_blank" rel="noopener">보기</a></td>
+          </tr>
+          <tr>
+            <td><a class="title" href="https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000123463" target="_blank" rel="noopener">경기 알리바바닷컴 마케팅 지원</a><span class="tag">온라인 B2B</span></td>
+            <td><span class="period">2026.06.18~07.01</span></td>
+            <td class="budget">멤버십 비용 일부 환급, 스토어 운영 및 입점 교육</td>
+            <td><a class="link-button" href="https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000123463" target="_blank" rel="noopener">보기</a></td>
+          </tr>
+          <tr>
+            <td><a class="title" href="https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000123461" target="_blank" rel="noopener">경북 AI 라이브커머스 지원</a><span class="tag">라이브커머스</span></td>
+            <td><span class="period">2026.06.19~07.02</span></td>
+            <td class="budget">기업당 최대 <strong>500만원</strong>, 방송·콘텐츠·판촉비</td>
+            <td><a class="link-button" href="https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000123461" target="_blank" rel="noopener">보기</a></td>
+          </tr>
+          <tr>
+            <td><a class="title" href="https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000123460" target="_blank" rel="noopener">부산 마을기업 온라인 마케팅 컨설팅</a><span class="tag">교육·컨설팅</span></td>
+            <td><span class="period">2026.06.19~06.30</span></td>
+            <td class="budget">마케팅 교육, 기업별 컨설팅, 플랫폼 입점·운영 코칭</td>
+            <td><a class="link-button" href="https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000123460" target="_blank" rel="noopener">보기</a></td>
+          </tr>
+          <tr>
+            <td><a class="title" href="https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000123457" target="_blank" rel="noopener">인천 해외 온라인 쇼핑몰 판매대행</a><span class="tag">온라인 판매</span></td>
+            <td><span class="period">2026.06.16~06.26</span><br><span class="deadline">마감 임박</span></td>
+            <td class="budget">상품등록·온라인 마케팅·판매·물류·통관·고객지원</td>
+            <td><a class="link-button" href="https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000123457" target="_blank" rel="noopener">보기</a></td>
+          </tr>
+          <tr>
+            <td><a class="title" href="https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000123487" target="_blank" rel="noopener">경기 더 좋은소비 페스타</a><span class="tag">오프라인 판촉</span></td>
+            <td><span class="period">2026.06.22~07.03</span></td>
+            <td class="budget">오프라인 판매부스·매대·의자·현수막 제공</td>
+            <td><a class="link-button" href="https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000123487" target="_blank" rel="noopener">보기</a></td>
+          </tr>
+          <tr>
+            <td><a class="title" href="https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000123458" target="_blank" rel="noopener">철원 관광콘텐츠 플리마켓</a><span class="tag">오프라인 판매</span></td>
+            <td><span class="period">2026.06.19~07.07</span></td>
+            <td class="budget">참가기업당 <strong>100만원</strong>, 판매부스·전기·컨설팅</td>
+            <td><a class="link-button" href="https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000123458" target="_blank" rel="noopener">보기</a></td>
+          </tr>
+          <tr>
+            <td><a class="title" href="https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000123422" target="_blank" rel="noopener">해양수산 국내판로 확대</a><span class="tag">국내 판로</span></td>
+            <td><span class="period">2026.06.16~06.26</span><br><span class="deadline">마감 임박</span></td>
+            <td class="budget">바이어 발굴·시장조사·홍보·마케팅 비용</td>
+            <td><a class="link-button" href="https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000123422" target="_blank" rel="noopener">보기</a></td>
+          </tr>
+          <tr>
+            <td><a class="title" href="https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000123424" target="_blank" rel="noopener">해양수산 해외시장 진출</a><span class="tag">해외 마케팅</span></td>
+            <td><span class="period">2026.06.16~06.26</span><br><span class="deadline">마감 임박</span></td>
+            <td class="budget">시장조사·바이어 발굴·홍보·마케팅·해외인증 비용</td>
+            <td><a class="link-button" href="https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000123424" target="_blank" rel="noopener">보기</a></td>
+          </tr>
+          <tr>
+            <td><a class="title" href="https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000123386" target="_blank" rel="noopener">서울 K-뷰티 태국 판로 연계</a><span class="tag">글로벌 프로모션</span></td>
+            <td><span class="period">2026.06.18~07.06</span></td>
+            <td class="budget">할인 바우처, LG전자 태국 홈페이지·앱 제품 홍보</td>
+            <td><a class="link-button" href="https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000123386" target="_blank" rel="noopener">보기</a></td>
+          </tr>
+          <tr>
+            <td><a class="title" href="https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000123400" target="_blank" rel="noopener">강원 온라인 마케팅 소상공인 지원</a><span class="tag">전담 마케터</span></td>
+            <td><span class="period">2026.06.18~07.08</span></td>
+            <td class="budget">전담 마케터를 통한 온라인몰 개설·운영·마케팅</td>
+            <td><a class="link-button" href="https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000123400" target="_blank" rel="noopener">보기</a></td>
+          </tr>
+          <tr>
+            <td><a class="title" href="https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000123491" target="_blank" rel="noopener">경주 중소기업 해외마케팅 지원</a><span class="tag">해외 마케팅</span></td>
+            <td><span class="period">2026.06.23~07.03</span></td>
+            <td class="budget">기업당 최대 <strong>1,000만원</strong>, 사업별 500만~1,000만원</td>
+            <td><a class="link-button" href="https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000123491" target="_blank" rel="noopener">보기</a></td>
+          </tr>
+          <tr>
+            <td><a class="title" href="https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000123420" target="_blank" rel="noopener">경북 글로벌 비즈니스 스케일업</a><span class="tag">수출 마케팅</span></td>
+            <td><span class="period">2026.06.18~08.31</span></td>
+            <td class="budget">수출 인프라·해외 마케팅·수출 활동 지원</td>
+            <td><a class="link-button" href="https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000123420" target="_blank" rel="noopener">보기</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
 
     <footer>
-      출처: 국가종합전자조달시스템 나라장터 · 일정과 금액은 공고 변경 가능성이 있으므로 투찰 전 원문을 반드시 확인하세요.
+      자료 출처: 기업마당 · 조사 기준일 2026년 6월 23일 · 실제 일정과 지원 조건은 각 공고 원문을 우선합니다.
     </footer>
   </main>
-
-  <div id="toast" class="toast" role="status"></div>
-
-  <script>
-    const bids = [
-      {title:"주식회사 스노우라인_유튜브 및 메타 기반 온라인 마케팅", agency:"(주)한국능률협회컨설팅", no:"R26BK01581676-000", start:"2026-06-16T09:00:00+09:00", end:"2026-06-26T10:00:00+09:00", budget:55000000, budgetLabel:"5,500만원", category:"온라인 광고"},
-      {title:"26년 공영홈쇼핑 SNS 마케팅 운영 용역", agency:"한국언론진흥재단", no:"R26BK01572388-000", start:"2026-06-16T11:00:00+09:00", end:"2026-06-29T11:00:00+09:00", budget:352770000, budgetLabel:"3억 5,277만원", category:"SNS 마케팅"},
-      {title:"K-wellink 온라인홍보관 운영 및 유지관리 용역", agency:"(사)한국바이오특화센터협의회", no:"R26BK01591503-000", start:"2026-06-19T12:00:00+09:00", end:"2026-06-30T15:00:00+09:00", budget:45000000, budgetLabel:"4,500만원", category:"온라인 홍보"},
-      {title:"JDC SNS 홍보 마케팅 용역", agency:"제주국제자유도시개발센터", no:"R26BK01537839-000", start:"2026-05-21T16:00:00+09:00", end:"2026-07-01T17:00:00+09:00", budget:363452096, budgetLabel:"3억 6,345만 2,096원", category:"SNS 마케팅"},
-      {title:"핵융합 및 플라즈마 연구성과 온라인 홍보 채널(SNS) 운영 및 영상 제작", agency:"한국핵융합에너지연구원", no:"R26BK01596859-000", start:"2026-06-24T09:00:00+09:00", end:"2026-07-06T10:00:00+09:00", budget:120000000, budgetLabel:"1억 2,000만원", category:"SNS·영상"},
-      {title:"AI기반 임상사진 자동관리 솔루션 글로벌 디지털 마케팅_중국", agency:"캐논코리아(주)", no:"R26BK01597439-000", start:"2026-06-23T15:00:00+09:00", end:"2026-07-06T18:00:00+09:00", budget:39380000, budgetLabel:"3,938만원", category:"디지털 마케팅"},
-      {title:"AI기반 임상사진 자동관리 솔루션 글로벌 디지털 마케팅_홍콩", agency:"캐논코리아(주)", no:"R26BK01597591-000", start:"2026-06-23T15:00:00+09:00", end:"2026-07-06T18:00:00+09:00", budget:36080000, budgetLabel:"3,608만원", category:"디지털 마케팅"},
-      {title:"26-27시즌 DB프로미 농구단 온라인 마케팅 대행사 선정", agency:"디비손해보험(주)", no:"R26BK01587958-000", start:"2026-06-17T17:30:00+09:00", end:"2026-07-27T12:00:00+09:00", budget:50000000, budgetLabel:"5,000만원 (부가세 별도)", category:"온라인 마케팅"},
-      {title:"2026-2027시즌 KCC 이지스 SNS 채널 운영 및 미디어 콘텐츠 제작", agency:"(주)케이씨씨중앙연구소", no:"R26BK01583988-000", start:"2026-06-17T11:00:00+09:00", end:"2026-08-06T14:00:00+09:00", budget:77000000, budgetLabel:"7,700만원", category:"SNS·콘텐츠"}
-    ];
-
-    const grid = document.querySelector("#grid");
-    const search = document.querySelector("#search");
-    const empty = document.querySelector("#empty");
-    const toast = document.querySelector("#toast");
-    let ascending = true;
-
-    const fmt = iso => new Intl.DateTimeFormat("ko-KR", {
-      year:"numeric", month:"2-digit", day:"2-digit", hour:"2-digit", minute:"2-digit",
-      hour12:false, timeZone:"Asia/Seoul"
-    }).format(new Date(iso));
-
-    function status(end) {
-      const left = new Date(end) - new Date();
-      const days = Math.ceil(left / 86400000);
-      if (days <= 3) return {text:`마감 D-${Math.max(days,0)}`, cls:"urgent"};
-      return {text:"투찰 가능", cls:""};
-    }
-
-    function showToast(message) {
-      toast.textContent = message;
-      toast.classList.add("show");
-      setTimeout(() => toast.classList.remove("show"), 2400);
-    }
-
-    async function openG2B(no) {
-      try { await navigator.clipboard.writeText(no); }
-      catch {
-        const area = document.createElement("textarea");
-        area.value = no; document.body.append(area); area.select();
-        document.execCommand("copy"); area.remove();
-      }
-      showToast(`${no} 복사 완료 — 나라장터 검색창에 붙여 넣으세요.`);
-      window.open("https://www.g2b.go.kr/", "_blank", "noopener");
-    }
-
-    function render() {
-      const q = search.value.trim().toLowerCase();
-      const filtered = bids
-        .filter(b => `${b.title} ${b.agency} ${b.no} ${b.category}`.toLowerCase().includes(q))
-        .sort((a,b) => ascending ? new Date(a.end)-new Date(b.end) : b.budget-a.budget);
-      grid.innerHTML = "";
-      empty.style.display = filtered.length ? "none" : "block";
-      filtered.forEach(b => {
-        const s = status(b.end);
-        const card = document.createElement("article");
-        card.className = "card";
-        card.innerHTML = `
-          <div class="top"><span class="category">${b.category}</span><span class="status ${s.cls}">${s.text}</span></div>
-          <h2>${b.title}</h2>
-          <p class="agency">${b.agency}</p>
-          <dl>
-            <dt>공고번호</dt><dd>${b.no}</dd>
-            <dt>투찰기간</dt><dd>${fmt(b.start)} ~<br>${fmt(b.end)}</dd>
-            <dt>배정예산</dt><dd class="budget">${b.budgetLabel}</dd>
-          </dl>
-          <div class="actions">
-            <button class="btn" type="button" data-copy="${b.no}">번호 복사</button>
-            <button class="btn primary" type="button" data-open="${b.no}">나라장터 조회</button>
-          </div>`;
-        grid.append(card);
-      });
-    }
-
-    grid.addEventListener("click", async event => {
-      const copy = event.target.closest("[data-copy]");
-      const open = event.target.closest("[data-open]");
-      if (copy) {
-        await navigator.clipboard.writeText(copy.dataset.copy);
-        showToast(`${copy.dataset.copy} 복사 완료`);
-      }
-      if (open) openG2B(open.dataset.open);
-    });
-    search.addEventListener("input", render);
-    document.querySelector("#sort").addEventListener("click", event => {
-      ascending = !ascending;
-      event.currentTarget.textContent = ascending ? "마감일 빠른 순" : "예산 큰 순";
-      render();
-    });
-    render();
-  </script>
 </body>
 </html>
