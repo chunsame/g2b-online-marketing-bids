@@ -123,9 +123,8 @@
     </div>
 
     <p class="notice">
-      ‘나라장터 조회’ 버튼을 누르면 공고번호가 자동 복사되고 나라장터가 열립니다.
-      나라장터는 외부 검색값을 주소로 직접 받지 않아, 열린 화면에서 <strong>입찰 → 입찰공고 → 입찰공고목록</strong>으로 이동한 뒤
-      복사된 공고번호를 붙여 넣으면 해당 공고 결과가 바로 조회됩니다.
+      ‘나라장터 조회’ 버튼을 누르면 나라장터 검색에 맞게 공고번호 끝의 차수(<strong>-000</strong>)를 제외한 번호가 자동 복사됩니다.
+      열린 나라장터 화면에서 팝업을 닫고 <strong>입찰정보 → 공고번호</strong> 칸에 붙여 넣은 뒤 검색하면 해당 공고가 조회됩니다.
     </p>
 
     <section id="grid" class="grid" aria-live="polite"></section>
@@ -176,14 +175,15 @@
     }
 
     async function openG2B(no) {
-      try { await navigator.clipboard.writeText(no); }
+      const searchNo = no.replace(/-\d+$/, "");
+      try { await navigator.clipboard.writeText(searchNo); }
       catch {
         const area = document.createElement("textarea");
-        area.value = no; document.body.append(area); area.select();
+        area.value = searchNo; document.body.append(area); area.select();
         document.execCommand("copy"); area.remove();
       }
-      showToast(`${no} 복사 완료 — 입찰공고목록의 ‘입찰공고번호’에 붙여 넣어 조회하세요.`);
-      window.open("https://www.g2b.go.kr/", "_blank", "noopener");
+      showToast(`${searchNo} 복사 완료 — 나라장터 ‘공고번호’ 칸에 붙여 넣어 검색하세요.`);
+      window.open("https://www.g2b.go.kr/?menuCangVal=PNPE001_01", "_blank", "noopener");
     }
 
     function render() {
