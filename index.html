@@ -124,7 +124,7 @@
 
     <p class="notice">
       ‘나라장터 조회’ 버튼을 누르면 나라장터 검색에 맞게 공고번호 끝의 차수(<strong>-000</strong>)를 제외한 번호가 자동 복사됩니다.
-      열린 나라장터 화면에서 팝업을 닫고 <strong>입찰정보 → 공고번호</strong> 칸에 붙여 넣은 뒤 검색하면 해당 공고가 조회됩니다.
+      열린 나라장터 메인 화면에서 팝업을 닫고 하단 <strong>입찰정보 → 공고번호</strong> 칸에 붙여 넣은 뒤 검색하면 해당 공고가 조회됩니다.
     </p>
 
     <section id="grid" class="grid" aria-live="polite"></section>
@@ -183,7 +183,7 @@
         document.execCommand("copy"); area.remove();
       }
       showToast(`${searchNo} 복사 완료 — 나라장터 ‘공고번호’ 칸에 붙여 넣어 검색하세요.`);
-      window.open("https://www.g2b.go.kr/?menuCangVal=PNPE001_01", "_blank", "noopener");
+      window.open("https://www.g2b.go.kr/", "_blank", "noopener");
     }
 
     function render() {
