@@ -18,12 +18,24 @@
     return cleanBidNo(params.get(HASH_KEY));
   }
 
+  function getBidNoFromSearch() {
+    const params = new URLSearchParams(window.location.search);
+    return cleanBidNo(params.get(HASH_KEY));
+  }
+
+  function getBidNoFromWindowName() {
+    const name = String(window.name || "");
+    if (!name.includes(HASH_KEY)) return "";
+    const params = new URLSearchParams(name);
+    return cleanBidNo(params.get(HASH_KEY));
+  }
+
   function getBidNo() {
-    const fromHash = getBidNoFromHash();
-    if (fromHash) {
-      sessionStorage.setItem(HASH_KEY, fromHash);
+    const incoming = getBidNoFromHash() || getBidNoFromSearch() || getBidNoFromWindowName();
+    if (incoming) {
+      sessionStorage.setItem(HASH_KEY, incoming);
       sessionStorage.removeItem(DONE_KEY);
-      return fromHash;
+      return incoming;
     }
     return cleanBidNo(sessionStorage.getItem(HASH_KEY));
   }

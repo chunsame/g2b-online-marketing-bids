@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         나라장터 공고번호 자동조회
 // @namespace    https://chunsame.github.io/g2b-online-marketing-bids/
-// @version      1.0.0
+// @version      1.0.1
 // @description  마케팅 입찰공고 목록에서 넘어온 공고번호를 나라장터 검색칸에 자동 입력하고 조회합니다.
 // @match        https://www.g2b.go.kr/*
 // @run-at       document-idle
@@ -30,12 +30,24 @@
     return cleanBidNo(params.get(HASH_KEY));
   }
 
+  function getBidNoFromSearch() {
+    const params = new URLSearchParams(window.location.search);
+    return cleanBidNo(params.get(HASH_KEY));
+  }
+
+  function getBidNoFromWindowName() {
+    const name = String(window.name || "");
+    if (!name.includes(HASH_KEY)) return "";
+    const params = new URLSearchParams(name);
+    return cleanBidNo(params.get(HASH_KEY));
+  }
+
   function getBidNo() {
-    const fromHash = getBidNoFromHash();
-    if (fromHash) {
-      sessionStorage.setItem(HASH_KEY, fromHash);
+    const incoming = getBidNoFromHash() || getBidNoFromSearch() || getBidNoFromWindowName();
+    if (incoming) {
+      sessionStorage.setItem(HASH_KEY, incoming);
       sessionStorage.removeItem(DONE_KEY);
-      return fromHash;
+      return incoming;
     }
     return cleanBidNo(sessionStorage.getItem(HASH_KEY));
   }
