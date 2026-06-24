@@ -55,6 +55,17 @@
       margin:0 0 18px; padding:14px 17px; border:1px solid #cfe0f6;
       border-radius:12px; color:#315172; background:var(--sky); font-size:13px;
     }
+    .setup {
+      margin:0 0 20px; padding:18px; border:1px solid #d7e6fb;
+      border-radius:16px; background:#fff;
+      box-shadow:0 10px 24px rgba(12,40,71,.06);
+    }
+    .setup h2 { margin:0 0 8px; font-size:18px; color:var(--navy); }
+    .setup p { margin:6px 0; color:#475467; font-size:14px; }
+    .setup ol { margin:12px 0 0 20px; padding:0; color:#475467; font-size:14px; }
+    .setup li { margin:6px 0; }
+    .setup .setup-actions { display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+    .setup .small { color:#667085; font-size:12px; }
     .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
     .card {
       display:flex; flex-direction:column; min-height:285px; padding:21px;
@@ -123,9 +134,24 @@
     </div>
 
     <p class="notice">
-      ‘나라장터 조회’ 버튼을 누르면 나라장터 검색에 맞게 공고번호 끝의 차수(<strong>-000</strong>)를 제외한 번호가 자동 복사됩니다.
-      열린 나라장터 메인 화면에서 팝업을 닫고 하단 <strong>입찰정보 → 공고번호</strong> 칸에 붙여 넣은 뒤 검색하면 해당 공고가 조회됩니다.
+      ‘나라장터 조회’ 버튼을 누르면 공고번호 끝의 차수(<strong>-000</strong>)를 제외한 번호가 자동 복사되고 나라장터가 열립니다.
+      아래 자동조회 스크립트를 한 번 설치해두면 나라장터 화면에서 공고번호 입력과 검색까지 자동으로 진행됩니다.
     </p>
+
+    <section class="setup" aria-label="나라장터 자동조회 설치 안내">
+      <h2>업무용 자동조회 설치</h2>
+      <p>처음 한 번만 Tampermonkey에 자동조회 스크립트를 설치하면, 이후에는 각 공고의 <strong>나라장터 조회</strong> 버튼만 눌러도 나라장터에서 자동 검색됩니다.</p>
+      <ol>
+        <li>Chrome에 <strong>Tampermonkey</strong> 확장프로그램을 설치합니다.</li>
+        <li>아래 <strong>자동조회 스크립트 열기</strong>를 눌러 스크립트를 설치합니다.</li>
+        <li>설치 후 이 목록에서 <strong>나라장터 조회</strong>를 누르면 자동으로 공고번호가 입력되고 검색됩니다.</li>
+      </ol>
+      <div class="setup-actions">
+        <a class="btn primary" href="./g2b-auto-search.user.js" target="_blank" rel="noopener">자동조회 스크립트 열기</a>
+        <a class="btn" href="https://www.tampermonkey.net/" target="_blank" rel="noopener">Tampermonkey 설치</a>
+      </div>
+      <p class="small">나라장터가 내부 화면 구조를 바꾸면 자동조회가 멈출 수 있습니다. 그 경우 이 스크립트만 업데이트하면 됩니다.</p>
+    </section>
 
     <section id="grid" class="grid" aria-live="polite"></section>
     <div id="empty" class="empty">검색 조건에 맞는 공고가 없습니다.</div>
@@ -182,8 +208,8 @@
         area.value = searchNo; document.body.append(area); area.select();
         document.execCommand("copy"); area.remove();
       }
-      showToast(`${searchNo} 복사 완료 — 나라장터 ‘공고번호’ 칸에 붙여 넣어 검색하세요.`);
-      window.open("https://www.g2b.go.kr/", "_blank", "noopener");
+      showToast(`${searchNo} 복사 완료 — 자동조회 스크립트가 설치되어 있으면 나라장터에서 바로 검색됩니다.`);
+      window.open(`https://www.g2b.go.kr/#g2bBidNo=${encodeURIComponent(searchNo)}`, "_blank", "noopener");
     }
 
     function render() {

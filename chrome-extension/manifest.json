@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "나라장터 공고번호 자동조회",
+  "version": "1.0.0",
+  "description": "마케팅 입찰공고 목록에서 넘어온 공고번호를 나라장터 검색칸에 자동 입력하고 조회합니다.",
+  "content_scripts": [
+    {
+      "matches": ["https://www.g2b.go.kr/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
