@@ -6,6 +6,7 @@
   const STATUS_ID = "g2b-auto-search-status";
   const MAX_WAIT_MS = 30000;
   const INTERVAL_MS = 700;
+  const POPUP_CLEAN_MS = 15000;
 
   function cleanBidNo(value) {
     return String(value || "").trim().replace(/-\d+$/, "");
@@ -126,15 +127,57 @@
     return null;
   }
 
+  function isVisible(el) {
+    if (!el) return false;
+    const rect = el.getBoundingClientRect();
+    const style = window.getComputedStyle(el);
+    return rect.width > 0 && rect.height > 0 && style.display !== "none" && style.visibility !== "hidden";
+  }
+
+  function safeClick(el) {
+    try {
+      if (isVisible(el)) {
+        el.click();
+        return true;
+      }
+    } catch (_) {}
+    return false;
+  }
+
   function closeNoticePopups() {
-    const closeWords = ["오늘 하루", "닫기", "팝업 닫기", "close"];
-    const targets = Array.from(document.querySelectorAll("button, a, input[type='button'], input[type='submit']"));
+    const closeWords = ["오늘 하루", "닫기", "팝업 닫기", "close", "확인"];
+    const noticeWords = ["나라장터 공지사항", "안내 메시지", "최대 검색기간"];
+    const targets = Array.from(document.querySelectorAll([
+      "button",
+      "a",
+      "[role='button']",
+      "input[type='button']",
+      "input[type='submit']",
+      "[id*='close']",
+      "[id*='Close']",
+      "[class*='close']",
+      "[class*='Close']",
+      "[title*='닫기']",
+      "[aria-label*='닫기']"
+    ].join(",")));
     for (const target of targets) {
-      const label = `${target.innerText || ""} ${target.value || ""} ${target.title || ""} ${target.getAttribute("aria-label") || ""}`.toLowerCase();
-      if (closeWords.some((word) => label.includes(word.toLowerCase()))) {
-        try { target.click(); } catch (_) {}
+      const label = `${target.innerText || ""} ${target.textContent || ""} ${target.value || ""} ${target.title || ""} ${target.id || ""} ${target.className || ""} ${target.getAttribute("aria-label") || ""}`.toLowerCase();
+      const parentText = (target.closest("div, section, article, dialog")?.innerText || "").slice(0, 800);
+      const isNoticeButton = noticeWords.some((word) => parentText.includes(word));
+      const looksClose = closeWords.some((word) => label.includes(word.toLowerCase())) || /close|btn.?x|popup.?close/i.test(label);
+      if (looksClose || isNoticeButton) {
+        safeClick(target);
       }
     }
+  }
+
+  function keepClosingPopups(duration = POPUP_CLEAN_MS) {
+    const startedAt = Date.now();
+    closeNoticePopups();
+    const popupTimer = window.setInterval(() => {
+      closeNoticePopups();
+      if (Date.now() - startedAt > duration) window.clearInterval(popupTimer);
+    }, 500);
   }
 
   function run() {
@@ -148,6 +191,7 @@
 
     const startedAt = Date.now();
     showStatus(`나라장터 자동조회 준비 중: ${bidNo}`);
+    keepClosingPopups();
 
     const timer = window.setInterval(() => {
       closeNoticePopups();
@@ -160,7 +204,10 @@
         setValue(input, bidNo);
         sessionStorage.setItem(DONE_KEY, bidNo);
         showStatus(`공고번호 ${bidNo} 입력 완료 — 검색합니다.`, "ok");
-        window.setTimeout(() => button.click(), 400);
+        window.setTimeout(() => {
+          safeClick(button);
+          keepClosingPopups();
+        }, 400);
         return;
       }
 
